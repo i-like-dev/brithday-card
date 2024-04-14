@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andre 生日電子賀卡！</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+        }
+        footer {
+            color: blue;
+        }
+    </style>
+</head>
+<body oncontextmenu="return false" onmousedown="return false">
+    <img src="andre.png" alt="img">
+
+<button onclick="showPasswordPrompt()">下載圖片</button>
+<p>此圖片受到保護，若需下載請輸入密碼！</p>
+<footer>&copy; 2024-2024 TW WALKING CAT ALL RIGHT RESERVED</footer>
+
+<script>
+    function showPasswordPrompt() {
+        var password = prompt("圖片受到保護！請輸入密碼以下載：", "");
+        if (password === "0413") {
+            // 正確的密碼導向下載圖片
+            downloadImage();
+        } else if (password !== null) { // 如果使用者按下取消按鈕，不執行任何動作
+            alert("密碼錯誤，請重新輸入。"); // 密碼錯誤時彈出警告
+        }
+    }
+
+    function downloadImage() {
+        var link = document.createElement("a");
+        link.href = "andre.png";
+        link.download = "andre.png";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+</script>
+
+</body>
+</html>
